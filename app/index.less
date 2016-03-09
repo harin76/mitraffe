@@ -1,0 +1,137 @@
+@import 'less/fonts.less';
+@import 'less/eric_meyer_reset.less';
+@base-color : #efefef;
+@text-inverted: #ffffff;
+/**
++---------CONTAINER-----------------------------------------------------------+
+|+--------------------+------------------CANVAS WRAPPER---------------------- |
+||                    |||||CANVAS TOOLS|||||||||||||||||||||||||||||||||||||| |
+||   WIDGET PALETTE   |+----------------------------------------------------+ |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||               CANVAS                               | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+||                    ||                                                    | |
+|+--------------------++----------------------------------------------------+ |
++----------------------------------------------------------------------------+
+*/
+
+.full-screen {
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+*, *:before, *:after
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+html, body {
+  .full-screen;
+  background-color: @base-color;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  display:flex;
+  .full-screen;
+}
+
+.widget-palette {
+  display: flex;
+  flex-direction :column;
+  min-width: 250px;
+  max-width: 250px;
+  h1 {
+    line-height: 40px;
+    font-size: 1.25em;
+    font-weight: 500;
+    color: @text-inverted;
+    text-align: center;
+  }
+  background-color: rgba(0,0,0,0.5);
+  .widget-group {
+    .title {
+      h1 {
+        line-height: 16px;
+        font-size: 0.8em;
+        font-weight: 300;
+        text-align: left;
+      }
+      background-color: rgba(0,0,0,0.2);
+      padding : 10px;
+      color: @text-inverted;
+      border-top: 1px solid rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    margin-top: 10px;
+    margin-botton: 5px;
+    .widgets {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-flow: row wrap;
+      align-content: space-between;
+      .widget {
+        padding: 1px;
+      }
+    }
+  }
+}
+
+.canvas-wrapper {
+  display: flex;
+  flex : 1;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.canvas-tools {
+  display : flex;
+  justify-content: center;
+  min-height: 50px;
+  background-color: rgba(20,20,20,0.8);
+  border-bottom : 1px solid rgba(200,200,200,0.7);
+  .views {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      margin:10px;
+      font-size: 1.6em;
+      font-weight: 200;
+      color: rgba(230,230,230,0.5);
+      line-height: 10px;
+    }
+  }
+}
+
+.canvas {
+  display:flex;
+  flex:1;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.1);
+  border : 1px solid rgba(0,0,0,0.5);
+  iframe {
+    background-color: #ffffff;
+  }
+}
